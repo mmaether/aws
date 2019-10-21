@@ -6,11 +6,11 @@ Amazon's EC2 is perhaps their flagship product. It allows clients to create virt
 
 ## EC2 Types
 
-- On Demand: allows you to pay a fixed rate by the hour (or second) with no committment. 
+- On Demand: allows you to pay a fixed rate by the hour (or second) with no committment.
   - Low cost and flexibility without long-term commitments. Short term, spiky, or unpredictable. Testing on Amazon for the first time.
 - Reserved: provides you with a capacity reservation, and offer a significant discount on the hourly charge for an instance. 1 year or 3 year terms
-  - Applications with steady state or predictable usage. Web servers. Make up-front payments to reduce the costs even further. 
-  - Standard reserved instances (RIs) up to 75% off on-demand. 
+  - Applications with steady state or predictable usage. Web servers. Make up-front payments to reduce the costs even further.
+  - Standard reserved instances (RIs) up to 75% off on-demand.
   - Convertible RIs (up to 54% off on-demand) feature the capability to change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value.
   - Scheduled RIs are available to launch within the time window you reserve. Allows you to match the capacity reservation to a predictable recurring schedule that only requires a fraction of a day/week/month.
 - Spot: like the stock market. enables you to bid whatever price you want for instance capacity, providing for even greater savings if your applications have flexible start and end times.
@@ -19,8 +19,7 @@ Amazon's EC2 is perhaps their flagship product. It allows clients to create virt
   - Useful for regulatory requirements that may not support multi-tenant virtualization, such as healthcare.
   - Great for licensing
   - Can be purchased on-demand (hourly)
-  
-  
+
 ## Instance Types
 
 Amazon had originally released a set of instance types with the following. A way to remember this is by calling it **Dr. McGiftpx**, a nicer Scrooge McDuck gifting people pictures of Scotland.
@@ -36,7 +35,7 @@ Amazon had originally released a set of instance types with the following. A way
 - P for graphics (think Pics)
 - X for extreme memory
 
-As Amazon updates relentlessly, this is now out of date. Instead there's a new acronym: 
+As Amazon updates relentlessly, this is now out of date. Instead there's a new acronym:
 
 **Fight Dr. McPx**, which is a picture of Edward Norton from Fight Club kicking the shit out of this poor duck.
 
@@ -74,7 +73,7 @@ Elastic Block Store (EBS) allows you to create storage volumes and attach them t
   - Lowest cost per gigabyte of all EBS volume types that is bootable. Magnetic volumes are ideal for workloads where data is accessed infrequently, and applications where the lowest storage cost is important.
 
 ## AMI
-Amazon Machine Image (AMI) are the different types of EC2 images we can spin up. There are two types of virtualization: 
+Amazon Machine Image (AMI) are the different types of EC2 images we can spin up. There are two types of virtualization:
 
 - HVM
 - Paravirtual.
@@ -96,5 +95,5 @@ Security groups are STATEFUL: If you create an inbound rule allowing traffic in,
 - All outbound traffic is allowed by default.
 
 You can have any number of EC2 instances within a security group. You cannot block specific IP addresses using Security Groups, instead use Network Access Control Lists.
-  
+
 The EC2 instance and the volume must exist in the same region. Think of like a desktop where they're tied in the same case.
