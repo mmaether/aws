@@ -48,7 +48,7 @@ There are 4 methods of encrypting objects in S3.
 * AES-256 encryption type.
 * Must set header: `"x-amz-server-side-encryption":"AES256"`
 
-![SSE-S3 diagram](../images/sse-s3.jpg)
+![SSE-S3 diagram](../../images/sse-s3.jpg)
 
 ### SSE-KMS
 
@@ -57,7 +57,7 @@ There are 4 methods of encrypting objects in S3.
 * Object is encrypted server side.
 * Must set header: `"x-amz-server-side-encryption": "aws:kms"`
 
-![SSE-KMS](../images/sse-kms.jpg)
+![SSE-KMS](../../images/sse-kms.jpg)
 
 ### SSE-C
 
@@ -66,7 +66,7 @@ There are 4 methods of encrypting objects in S3.
 * **HTTPS must be used.**
 * Encryption key must be provided in HTTP headers, for every HTTP request made.
 
-![SSE-C](../images/sse-c.jpg)
+![SSE-C](../../images/sse-c.jpg)
 
 ### Client Side Encryption
 
@@ -75,7 +75,7 @@ There are 4 methods of encrypting objects in S3.
 * Clients must decrypt data themselves when retrieving from S3.
 * Customer fully manages the keys and encryption cycle.
 
-![Client side encryption](../images/client-side-encryption.jpg)
+![Client side encryption](../../images/client-side-encryption.jpg)
 
 ### Encryption in transit (SSL)
 
@@ -119,7 +119,7 @@ If you request data from another S3 bucket, you need to enable CORS.
 
 Cross Origin Resource Sharing (CORS) allows you to limit the number of websites that can request your files in S3 (and limit your costs).
 
-![CORS](../images/cors.jpg)
+![CORS](../../images/cors.jpg)
 
 ## Consistency Model
 

@@ -12,4 +12,3 @@ Domain 3: Development with AWS Services | 30% | Serverless, API, SDK & CLI.
 Domain 4: Refactoring | 10% | Understand all AWS services for the best migration.
 Domain 5: Monitoring and Troubleshooting | 12% | CloudWatch, CloudTrail, X-Ray
 **TOTAL** | **100%** |
-
