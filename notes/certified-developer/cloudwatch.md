@@ -26,3 +26,5 @@ You can define and send your own custom metrics to CloudWatch.
 - Metric resolution
   - Standard: 1 minute
   - High Resolution: up to 1 second (StorageResolution API parameter) - higher cost.
+- Use API call **PutMetricData**
+- Use exponential back off in case of throttle error.
