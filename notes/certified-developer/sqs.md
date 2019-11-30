@@ -57,3 +57,52 @@ There are **producers** who create the messages, and **consumers** where the mes
 - Long polling can be enabled at the queue level or at the API level using **WaitTimeSeconds**.
 
 ![SQS Flow](../images/../../images/sqs-flow.png)
+
+## FIFO - First In, First Out
+
+- Newer offering, not available in all regions.
+- Name of the queue must end in `.fifo`.
+- Lower throughput (up to 3,000 per second with batching, 300/s without)
+- Messages are processed in order by the consumer.
+- Messages are sent exactly once.
+- No per message delay (only per queue delay).
+
+## FIFO Features
+
+- Deduplication: not sending the same message twice.
+  - Provide a `MessageDeduplicationId` with your message.
+  - De-duplication interval is 5 minutes.
+  - Content based deduplication: the `MessageDeduplicationId` is generated as the SHA-256 of the message body (not the attributes).
+- Sequencing
+  - To ensure strict ordering between messages, specify a `MessageGroupId`
+  - Messages with different Group ID may be received out of order.
+  - e.g. to order messages for a user, you could use the `user_id` as a group ID.
+  - Messages with the same Group ID are delivered to one consumer at a time.
+
+## SQS Extended Client
+
+- Message size limit is 256kb, to send larger messages use the SQS Extended Client (Java library). Images, videos, etc.
+- Sends large messages to S3, then sends small metadata message to the SQS Queue.
+
+## SQS Security
+
+- Encryption in transit using the HTTPS endpoint.
+- Can enable SSE (Server Side Encryption) using KMS.
+  - Can set the CMK (Customer Master Key) we want to use.
+  - Can set the data key reuse period (between 1 minute and 24 hours)
+    - Lower and KMS API will be used often.
+    - Higher and KMS API will be called less.
+  - SSE only encrypts the body, not the metadata (message ID, timestamp, attributes).
+- IAM policy must allow usage of SQS.
+- SQS queue access policy.
+  - Finer grained control over IP.
+  - Control over the time the requests come in.
+- No VPC endpoint, must have internet access to access SQS.
+
+## Must know API
+
+- `CreateQueue`, `DeleteQueue`
+- `PurgeQueue`: delete all the messages in queue.
+- `SendMessage`, `ReceiveMessage`, `DeleteMessage`
+- `ChangeMessageVisibility`: change the timeout
+- Batch APIs for `SendMessage`, `DeleteMessage`, `ChangeMessageVisibility` helps decrease your costs.
